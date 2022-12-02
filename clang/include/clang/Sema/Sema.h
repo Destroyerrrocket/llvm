@@ -12046,14 +12046,13 @@ public:
       SourceRange SR,
       ArrayRef<Expr *> UnresolvedReductions = llvm::None);
 
+  bool ActOnOmpSsDeclareTaskDirectiveWithFpga(Decl *ADecl);
+
   OSSClause *ActOnOmpSsVarListClause(
-      OmpSsClauseKind Kind, ArrayRef<Expr *> Vars,
-      SourceLocation StartLoc, SourceLocation LParenLoc,
-      SourceLocation ColonLoc, SourceLocation EndLoc,
-      ArrayRef<OmpSsDependClauseKind> DepKinds,
-      SourceLocation DepLoc,
-      CXXScopeSpec &ReductionIdScopeSpec,
-      DeclarationNameInfo &ReductionId);
+      OmpSsClauseKind Kind, ArrayRef<Expr *> Vars, SourceLocation StartLoc,
+      SourceLocation LParenLoc, SourceLocation ColonLoc, SourceLocation EndLoc,
+      ArrayRef<OmpSsDependClauseKind> DepKinds, SourceLocation DepLoc,
+      CXXScopeSpec &ReductionIdScopeSpec, DeclarationNameInfo &ReductionId);
 
   OSSClause *ActOnOmpSsFixedListClause(
       OmpSsClauseKind Kind, ArrayRef<Expr *> Vars,

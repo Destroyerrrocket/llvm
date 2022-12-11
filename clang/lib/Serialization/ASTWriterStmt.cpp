@@ -2671,6 +2671,8 @@ void ASTStmtWriter::VisitOMPTargetParallelGenericLoopDirective(
   Code = serialization::STMT_OMP_TARGET_PARALLEL_GENERIC_LOOP_DIRECTIVE;
 }
 
+void ASTStmtWriter::VisitHlsDirective(HlsDirective *D) {}
+
 //===----------------------------------------------------------------------===//
 // OmpSs Directives.
 //===----------------------------------------------------------------------===//

@@ -424,6 +424,8 @@ void CodeGenFunction::EmitStmt(const Stmt *S, ArrayRef<const Attr *> Attrs) {
   case Stmt::OMPParallelMaskedDirectiveClass:
     llvm_unreachable("parallel masked directive not supported yet.");
     break;
+  case Stmt::HlsDirectiveClass:
+    break;
   // OmpSs directives
   case Stmt::OSSTaskwaitDirectiveClass:
     EmitOSSTaskwaitDirective(cast<OSSTaskwaitDirective>(*S));

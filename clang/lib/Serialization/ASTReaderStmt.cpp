@@ -2690,6 +2690,8 @@ void ASTStmtReader::VisitOMPTargetParallelGenericLoopDirective(
   VisitOMPLoopDirective(D);
 }
 
+void ASTStmtReader::VisitHlsDirective(HlsDirective *D) {}
+
 //===----------------------------------------------------------------------===//
 // OmpSs Directives.
 //===----------------------------------------------------------------------===//

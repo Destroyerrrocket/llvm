@@ -297,6 +297,9 @@ def OMPTargetTeamsGenericLoopDirective : StmtNode<OMPLoopDirective>;
 def OMPParallelGenericLoopDirective : StmtNode<OMPLoopDirective>;
 def OMPTargetParallelGenericLoopDirective : StmtNode<OMPLoopDirective>;
 
+// Hls Directives
+def HlsDirective : StmtNode<Stmt>;
+
 // OmpSs Directives
 def OSSExecutableDirective : StmtNode<Stmt, 1>;
 def OSSLoopDirective : StmtNode<OSSExecutableDirective, 1>;

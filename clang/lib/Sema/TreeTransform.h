@@ -19,19 +19,20 @@
 #include "clang/AST/DeclObjC.h"
 #include "clang/AST/DeclTemplate.h"
 #include "clang/AST/Expr.h"
-#include "clang/AST/ExprConcepts.h"
 #include "clang/AST/ExprCXX.h"
+#include "clang/AST/ExprConcepts.h"
 #include "clang/AST/ExprObjC.h"
+#include "clang/AST/ExprOmpSs.h"
 #include "clang/AST/ExprOpenMP.h"
 #include "clang/AST/OpenMPClause.h"
-#include "clang/AST/ExprOmpSs.h"
 #include "clang/AST/Stmt.h"
 #include "clang/AST/StmtCXX.h"
+#include "clang/AST/StmtHlsStub.h"
 #include "clang/AST/StmtObjC.h"
+#include "clang/AST/StmtOmpSs.h"
 #include "clang/AST/StmtOpenMP.h"
 #include "clang/Basic/DiagnosticParse.h"
 #include "clang/Basic/OpenMPKinds.h"
-#include "clang/AST/StmtOmpSs.h"
 #include "clang/Sema/Designator.h"
 #include "clang/Sema/Lookup.h"
 #include "clang/Sema/Ownership.h"
@@ -10765,6 +10766,11 @@ OMPClause *TreeTransform<Derived>::TransformOMPBindClause(OMPBindClause *C) {
 //===----------------------------------------------------------------------===//
 // OmpSs directive transformation
 //===----------------------------------------------------------------------===//
+
+template <typename Derived>
+StmtResult TreeTransform<Derived>::TransformHlsDirective(HlsDirective *D) {
+  return D;
+}
 
 template <typename Derived>
 StmtResult TreeTransform<Derived>::TransformOSSExecutableDirective(

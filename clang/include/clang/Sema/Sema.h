@@ -12022,28 +12022,24 @@ public:
   /// Called on well-formed '\#pragma oss task' after parsing of
   /// the associated method/function.
   DeclGroupPtrTy ActOnOmpSsDeclareTaskDirective(
-      DeclGroupPtrTy DG,
-      Expr *If, Expr *Final, Expr *Cost, Expr *Priority,
-      Expr *Onready, bool Wait,
-      unsigned Device, SourceLocation DeviceLoc,
-      ArrayRef<Expr *> Labels,
-      ArrayRef<Expr *> Ins, ArrayRef<Expr *> Outs, ArrayRef<Expr *> Inouts,
-      ArrayRef<Expr *> Concurrents, ArrayRef<Expr *> Commutatives,
-      ArrayRef<Expr *> WeakIns, ArrayRef<Expr *> WeakOuts,
-      ArrayRef<Expr *> WeakInouts,
+      DeclGroupPtrTy DG, Expr *If, Expr *Final, Expr *Cost, Expr *Priority,
+      Expr *Onready, Expr *NumInstances, Expr *Onto, Expr *NumRepetitions,
+      Expr *Period, bool Wait, unsigned Device, SourceLocation DeviceLoc,
+      ArrayRef<Expr *> Labels, ArrayRef<Expr *> Ins, ArrayRef<Expr *> Outs,
+      ArrayRef<Expr *> Inouts, ArrayRef<Expr *> Concurrents,
+      ArrayRef<Expr *> Commutatives, ArrayRef<Expr *> WeakIns,
+      ArrayRef<Expr *> WeakOuts, ArrayRef<Expr *> WeakInouts,
       ArrayRef<Expr *> WeakConcurrents, ArrayRef<Expr *> WeakCommutatives,
-      ArrayRef<Expr *> DepIns, ArrayRef<Expr *> DepOuts, ArrayRef<Expr *> DepInouts,
-      ArrayRef<Expr *> DepConcurrents, ArrayRef<Expr *> DepCommutatives,
-      ArrayRef<Expr *> DepWeakIns, ArrayRef<Expr *> DepWeakOuts,
-      ArrayRef<Expr *> DepWeakInouts,
+      ArrayRef<Expr *> DepIns, ArrayRef<Expr *> DepOuts,
+      ArrayRef<Expr *> DepInouts, ArrayRef<Expr *> DepConcurrents,
+      ArrayRef<Expr *> DepCommutatives, ArrayRef<Expr *> DepWeakIns,
+      ArrayRef<Expr *> DepWeakOuts, ArrayRef<Expr *> DepWeakInouts,
       ArrayRef<Expr *> DepWeakConcurrents, ArrayRef<Expr *> DepWeakCommutatives,
-      ArrayRef<unsigned> ReductionListSizes,
-      ArrayRef<Expr *> Reductions,
+      ArrayRef<unsigned> ReductionListSizes, ArrayRef<Expr *> Reductions,
       ArrayRef<unsigned> ReductionClauseType,
       ArrayRef<CXXScopeSpec> ReductionCXXScopeSpecs,
-      ArrayRef<DeclarationNameInfo> ReductionIds,
-      ArrayRef<Expr *> Ndranges, SourceLocation NdrangeLoc,
-      SourceRange SR,
+      ArrayRef<DeclarationNameInfo> ReductionIds, ArrayRef<Expr *> Ndranges,
+      SourceLocation NdrangeLoc, SourceRange SR,
       ArrayRef<Expr *> UnresolvedReductions = llvm::None);
 
   bool ActOnOmpSsDeclareTaskDirectiveWithFpga(Decl *ADecl);
@@ -12153,6 +12149,25 @@ public:
   OSSClause *ActOnOmpSsPriorityClause(Expr *E, SourceLocation StartLoc,
                                       SourceLocation LParenLoc,
                                       SourceLocation EndLoc);
+  /// Called on well-formed 'num_instances' clause.
+  OSSClause *ActOnOmpSsNumInstancesClause(Expr *E, SourceLocation StartLoc,
+                                          SourceLocation LParenLoc,
+                                          SourceLocation EndLoc);
+
+  /// Called on well-formed 'onto' clause.
+  OSSClause *ActOnOmpSsOntoClause(Expr *E, SourceLocation StartLoc,
+                                  SourceLocation LParenLoc,
+                                  SourceLocation EndLoc);
+
+  /// Called on well-formed 'num_repetitions' clause.
+  OSSClause *ActOnOmpSsNumRepetitionsClause(Expr *E, SourceLocation StartLoc,
+                                            SourceLocation LParenLoc,
+                                            SourceLocation EndLoc);
+
+  /// Called on well-formed 'period' clause.
+  OSSClause *ActOnOmpSsPeriodClause(Expr *E, SourceLocation StartLoc,
+                                    SourceLocation LParenLoc,
+                                    SourceLocation EndLoc);
   /// Called on well-formed 'label' clause.
   OSSClause *ActOnOmpSsLabelClause(ArrayRef<Expr *> VarList, SourceLocation StartLoc,
                                    SourceLocation LParenLoc,

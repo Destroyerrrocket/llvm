@@ -914,6 +914,31 @@ void OSSClausePrinter::VisitOSSNdrangeClause(OSSNdrangeClause *Node) {
   }
 }
 
+void OSSClausePrinter::VisitOSSNumInstancesClause(OSSNumInstancesClause *Node) {
+  OS << "num_instances(";
+  Node->getExpression()->printPretty(OS, nullptr, Policy, 0);
+  OS << ")";
+}
+
+void OSSClausePrinter::VisitOSSOntoClause(OSSOntoClause *Node) {
+  OS << "onto(";
+  Node->getExpression()->printPretty(OS, nullptr, Policy, 0);
+  OS << ")";
+}
+
+void OSSClausePrinter::VisitOSSNumRepetitionsClause(
+    OSSNumRepetitionsClause *Node) {
+  OS << "num_repetitions(";
+  Node->getExpression()->printPretty(OS, nullptr, Policy, 0);
+  OS << ")";
+}
+
+void OSSClausePrinter::VisitOSSPeriodClause(OSSPeriodClause *Node) {
+  OS << "period(";
+  Node->getExpression()->printPretty(OS, nullptr, Policy, 0);
+  OS << ")";
+}
+
 //===----------------------------------------------------------------------===//
 //  OpenMP directives printing methods
 //===----------------------------------------------------------------------===//

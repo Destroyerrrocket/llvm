@@ -3754,6 +3754,10 @@ def OSSTaskDecl : Attr {
       ["smp", "cuda", "opencl", "fpga", "unknown"],
       ["Smp", "Cuda", "Opencl", "Fpga", "Unknown"]>,
     ExprArgument<"OnreadyExpr">,
+    ExprArgument<"NumInstances">,
+    ExprArgument<"Onto">,
+    ExprArgument<"NumRepetitions">,
+    ExprArgument<"Period">,
     VariadicExprArgument<"LabelExprs">,
     // in()
     VariadicExprArgument<"Ins">, VariadicExprArgument<"Outs">,

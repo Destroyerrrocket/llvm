@@ -12043,6 +12043,8 @@ public:
       ArrayRef<Expr *> UnresolvedReductions = llvm::None);
 
   bool ActOnOmpSsDeclareTaskDirectiveWithFpga(Decl *ADecl);
+  SmallVector<Decl *, 2> ompssFpgaDecls;
+  bool ActOnOmpSsFpgaGenerateAitFiles();
 
   OSSClause *ActOnOmpSsVarListClause(
       OmpSsClauseKind Kind, ArrayRef<Expr *> Vars, SourceLocation StartLoc,

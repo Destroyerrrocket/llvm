@@ -947,6 +947,16 @@ void OSSClausePrinter::VisitOSSLocalmemClause(OSSLocalmemClause *Node) {
   }
 }
 
+void OSSClausePrinter::VisitOSSLocalmemCopiesClause(
+    OSSLocalmemCopiesClause *_) {
+  OS << "localmem_copies";
+}
+
+void OSSClausePrinter::VisitOSSNoLocalmemCopiesClause(
+    OSSNoLocalmemCopiesClause *_) {
+  OS << "no_localmem_copies";
+}
+
 //===----------------------------------------------------------------------===//
 //  OpenMP directives printing methods
 //===----------------------------------------------------------------------===//

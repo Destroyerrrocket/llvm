@@ -6073,6 +6073,11 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
   if (Args.getLastArg(options::OPT_fompss) && !IsCuda) {
     CmdArgs.push_back("-fompss-2");
   }
+  if (Arg *A =
+          Args.getLastArg(options::OPT_fompss_fpga_extract_hls_tasks_dir)) {
+    CmdArgs.push_back("-fompss-fpga-extract-hls-tasks-dir");
+    CmdArgs.push_back(A->getValue());
+  }
 
   // Forward flags for OpenMP. We don't do this if the current action is an
   // device offloading action other than OpenMP.

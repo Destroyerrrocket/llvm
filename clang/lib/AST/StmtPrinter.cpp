@@ -939,6 +939,14 @@ void OSSClausePrinter::VisitOSSPeriodClause(OSSPeriodClause *Node) {
   OS << ")";
 }
 
+void OSSClausePrinter::VisitOSSLocalmemClause(OSSLocalmemClause *Node) {
+  if (!Node->varlist_empty()) {
+    OS << "localmem";
+    VisitOSSClauseList(Node, '(');
+    OS << ")";
+  }
+}
+
 //===----------------------------------------------------------------------===//
 //  OpenMP directives printing methods
 //===----------------------------------------------------------------------===//

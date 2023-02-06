@@ -121,6 +121,7 @@ unsigned clang::getOmpSsSimpleClauseType(OmpSsClauseKind Kind,
   case OSSC_onto:
   case OSSC_num_repetitions:
   case OSSC_period:
+  case OSSC_localmem:
     break;
   }
   llvm_unreachable("Invalid OmpSs simple clause kind");
@@ -193,6 +194,7 @@ const char *clang::getOmpSsSimpleClauseTypeName(OmpSsClauseKind Kind,
   case OSSC_onto:
   case OSSC_num_repetitions:
   case OSSC_period:
+  case OSSC_localmem:
     break;
   }
   llvm_unreachable("Invalid OmpSs simple clause kind");

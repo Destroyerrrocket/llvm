@@ -223,6 +223,8 @@ void OSSTaskDeclAttr::printPrettyPragma(
     E->printPretty(OS, nullptr, Policy);
     OS << ")";
   }
+  l("localmem", "(", localmem_size(), localmem_begin(), localmem_end(), OS,
+    Policy);
 }
 
 void OMPDeclareTargetDeclAttr::printPrettyPragma(

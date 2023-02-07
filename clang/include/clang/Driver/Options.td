@@ -2524,9 +2524,12 @@ def fompss : Flag<["-"], "fompss-2">, Group<f_Group>, Flags<[CC1Option, NoArgume
   MarshallingInfoFlag<LangOpts<"OmpSs">>;
 def fdo_not_use_nanos6 : Flag<["-"], "fdo-not-use-nanos6">, Group<f_Group>, Flags<[CC1Option, NoArgumentUnused]>,
   HelpText<"When compiling with -fompss-2 do not include or link with nanos6.">;
-def fompss_fpga_extract_hls_tasks_dir : Separate<["-"], "fompss-fpga-extract-hls-tasks-dir">, Flags<[CC1Option]>, Group<f_Group>,
+def fompss_fpga_hls_tasks_dir : Separate<["-"], "fompss-fpga-hls-tasks-dir">, Flags<[CC1Option]>, Group<f_Group>,
   MetaVarName<"<path>">,
-  MarshallingInfoString<LangOpts<"OmpSsFpgaExtractHlsTasksDir">>, HelpText<"Specify which directory should be used when extracting hls functions">;
+  MarshallingInfoString<LangOpts<"OmpSsFpgaHlsTasksDir">>, HelpText<"Specify which directory should be used when extracting hls functions">;
+def fompss_fpga_extract : Flag<["-"], "fompss-fpga-extract">, Group<f_Group>, Flags<[CC1Option]>,
+  HelpText<"Export all OmpSs2 fpga code in the directory defined in -fompss-fpga-hls-tasks-dir">,
+  MarshallingInfoFlag<LangOpts<"OmpSsFpgaExtract">>;
 def fopenmp : Flag<["-"], "fopenmp">, Group<f_Group>, Flags<[CC1Option, NoArgumentUnused, FlangOption, FC1Option]>,
   HelpText<"Parse OpenMP pragmas and generate parallel code.">;
 def fno_openmp : Flag<["-"], "fno-openmp">, Group<f_Group>, Flags<[NoArgumentUnused]>;

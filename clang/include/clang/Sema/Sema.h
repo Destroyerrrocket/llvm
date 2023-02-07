@@ -12045,7 +12045,7 @@ public:
 
   bool ActOnOmpSsDeclareTaskDirectiveWithFpga(Decl *ADecl);
   SmallVector<Decl *, 2> ompssFpgaDecls;
-  bool ActOnOmpSsFpgaGenerateAitFiles();
+  bool ActOnOmpSsFpgaExtractFiles();
 
   OSSClause *ActOnOmpSsVarListClause(
       OmpSsClauseKind Kind, ArrayRef<Expr *> Vars, SourceLocation StartLoc,
